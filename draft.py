@@ -14,7 +14,7 @@ for i in file:
         current = 0
 
 print(m_spaces)
-'''
+
 #2
 with open('text.txt', 'r') as f:
     file = f.read()
@@ -30,3 +30,4 @@ for i in range(0, len(file)-1):
         current = 0
 
 print(m_pair+1)
+'''
