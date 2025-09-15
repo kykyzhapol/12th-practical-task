@@ -95,4 +95,57 @@ for i in range(0, len(file)):
     m_len = min(m_len, len(file[i]))
 
 print(file, m_len)
+
+#8
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.read()
+file = file.split()
+
+for i in range(0, len(file)):
+    file[i] = file[i].lower()
+    while not file[i].isalpha():
+        file[i] = file[i][:-1]
+
+file.sort(key=len)
+print(*file)
+
+#9
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.read()
+file = file.split()
+
+for i in range(0, len(file)):
+    file[i] = file[i].lower()
+    while not file[i].isalpha():
+        file[i] = file[i][:-1]
+
+for comp in file:
+    file_an = file
+    file_an.remove(comp)
+    for comper in file:
+        if comp == comper:
+            print(comp)
+            break
+
+#10
+#reading file
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.read()
+file = file.split()
+
+#staying only letters
+for i in range(0, len(file)):
+    file[i] = file[i].lower()
+    while not file[i].isalpha():
+        file[i] = file[i][:-1]
+
+fst = file[0]
+file = set(file)
+file.remove(fst)
+print(file)
+
+for i in file:
+    if len(set(i)) == len(i):
+        print(i)
 '''
+#11
