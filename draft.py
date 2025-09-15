@@ -51,6 +51,48 @@ for i in file:
         print(i)
         break
 print(file.count('а'))
-'''
 
 #5
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.readlines()
+
+symbols = set()
+for lines in file:
+    other_text = file
+    other_text.remove(lines)
+    for let in lines:
+        if let not in other_text[0] and let != '\n':
+            symbols.add(let)
+
+print(*symbols)
+
+#6
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.read()
+file = file.split()
+file.reverse()
+for i in range(0, len(file)):
+    if file[i][-1] == '.':
+        file[i] = file[i][:-1]
+    if file[i][-1] == ',':
+        file[i] = file[i][:-1]
+        file[i-1] = f'{file[i-1]},'
+file[-1] = f'{file[-1].lower()}.'
+file[0] = file[0].title()
+
+print(*file)
+
+#7
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.read()
+file = file.split()
+file.reverse()
+
+m_len = 100000
+for i in range(0, len(file)):
+    while not file[i].isalpha():
+        file[i] = file[i][:-1]
+    m_len = min(m_len, len(file[i]))
+
+print(file, m_len)
+'''
