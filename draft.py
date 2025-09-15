@@ -147,5 +147,101 @@ print(file)
 for i in file:
     if len(set(i)) == len(i):
         print(i)
-'''
+
 #11
+#Petya - first, Vasya  - second
+
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.read()
+file = file.split()
+
+for i in range(0, len(file)):
+    file[i] = file[i].lower()
+
+for city_ix in range(0, len(file)-1):
+    if file[city_ix][-1] != file[city_ix+1][0]:
+        if city_ix % 2 == 1:
+            print('Vasya win')
+            break
+        else:
+            print('Petya win')
+            break
+    if city_ix+2 == len(file):
+        if city_ix % 2 == 1:
+            print('Petya win')
+        else:
+            print('Vasya win')
+
+#12
+import keyword
+
+kw = keyword.kwlist
+
+name = input('Enter name of value -->')
+error_count = 0
+
+if name in kw:
+    error_count +=1
+    print('er1')
+if name[0].isdigit():
+    error_count +=1
+    print('er2')
+for let in name:
+    if 'A' <= let <= 'z' or let == '_' or name.isalnum():
+        pass
+    else:
+        error_count += 1
+        print('er3')
+
+match error_count:
+    case 0:
+        print('available name')
+    case _:
+        print('name in not available')
+
+#13
+def lucky_check(x):
+
+    if len(x)%2 == 0:
+        if sum(int(digit) for digit in x[len(x)//2:]) == sum(int(digit) for digit in x[:len(x)//2]):
+            return True
+    return False
+
+tickets = False
+cnt = 0
+while tickets == False:
+    cnt+=1
+    tickets = lucky_check(input('enter your ticket number -->'))
+print(cnt)
+'''
+#14
+clue = input('подсказка -->')
+word = input('слово -->')
+word_list = [i for i in word]
+guess_list = ['*']*len(word)
+try_q = 25
+print('\n'*25, clue)
+while try_q > 0:
+    try_q -=1
+    print(*guess_list)
+    cho =  int(input('Буква или слово (0 - буква, 1 - слово)?'))
+    match cho:
+        case 1:
+            guess_word = input('Слово?')
+            if guess_list == word:
+                print('Победа!')
+                break
+            else:
+                print('Проигрыш!')
+                break
+        case 0:
+            let = input('Буква?')
+            if let in word_list:
+                for i in range(len(word_list)):
+                    if let == word_list[i]:
+                        guess_list[i] = let
+            else:
+                print('Нет такой буквы')
+else:
+    print('Вы проиграли')
+
