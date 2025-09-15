@@ -41,19 +41,16 @@ for i in file:
     if ('А' <= i <= 'я') or ('A' <= i <= 'z'):
         let.add(i)
 print(len(let))
-'''
+
 #4
-with open('text.txt', 'r') as f:
+with open('text.txt', 'r', encoding='UTF-8') as f:
     file = f.read()
-list(file)
 
-let = set()
 for i in file:
-    if ('А' <= i <= 'я') or ('A' <= i <= 'z'):
-        let.add(i)
-
-str(file)
-for i in let:
     if file.count(i) == 3:
         print(i)
         break
+print(file.count('а'))
+'''
+
+#5
