@@ -30,4 +30,30 @@ for i in range(0, len(file)-1):
         current = 0
 
 print(m_pair+1)
+
+#3
+with open('text.txt', 'r') as f:
+    file = f.read()
+list(file)
+
+let = set()
+for i in file:
+    if ('А' <= i <= 'я') or ('A' <= i <= 'z'):
+        let.add(i)
+print(len(let))
 '''
+#4
+with open('text.txt', 'r') as f:
+    file = f.read()
+list(file)
+
+let = set()
+for i in file:
+    if ('А' <= i <= 'я') or ('A' <= i <= 'z'):
+        let.add(i)
+
+str(file)
+for i in let:
+    if file.count(i) == 3:
+        print(i)
+        break
