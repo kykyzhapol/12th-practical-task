@@ -213,7 +213,7 @@ while tickets == False:
     cnt+=1
     tickets = lucky_check(input('enter your ticket number -->'))
 print(cnt)
-'''
+
 #14
 clue = input('подсказка -->')
 word = input('слово -->')
@@ -228,7 +228,7 @@ while try_q > 0:
     match cho:
         case 1:
             guess_word = input('Слово?')
-            if guess_list == word:
+            if guess_word == word:
                 print('Победа!')
                 break
             else:
@@ -245,3 +245,60 @@ while try_q > 0:
 else:
     print('Вы проиграли')
 
+#15
+
+num = 1
+while len(str(num)) != 4 or len(set(str(num))) != 4:
+    try:
+        num = int(input('Введите 4х значное целое число с различными цифрами -->'))
+    except:
+        continue
+print('\n'*25)
+
+#Быки - цифры совпавшие с загаданным числом и при этом находящиеся на тех же позициях.
+#Коровы - цифры, которые есть в загаданном числе, но находятся на других позициях
+num_l = [int(i) for i in str(num)]
+try_q = 10
+bools = 0
+cows = 0
+while try_q>0 and bools!=4:
+    bools, cows = 0, 0
+    try_q -= 1
+    num_g = [int(i) for i in input()]
+    for n in range(len(num_l)):
+        if num_l[n] == num_g[n]:
+            bools +=1
+        if num_g[n] in num_l:
+            cows +=1
+    print(f'Быков: {bools}, Коров: {cows-bools}')
+
+#16
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.read()
+file_lst = [i for i in file]
+position1, position2 = [], []
+for i in range(len(file_lst)):
+    if file_lst[i] == ')':
+        position1.append(i)
+    if file_lst[i] == '(':
+        position2.append(i)
+print(position2, position1)
+
+if len(position1) == len(position2) and sum(position1) > sum(position2):
+    print('all correct')
+else:
+    print('not all correct')
+'''
+#17
+with open('text.txt', 'r', encoding='UTF-8') as f:
+    file = f.read()
+print(file)
+
+file_lst = [i for i in file]
+position1, position2 = [], []
+for i in range(len(file_lst)):
+    if file_lst[i] == ')':
+        position1.append(i)
+    if file_lst[i] == '(':
+        position2.append(i)
+print(position2, position1)
